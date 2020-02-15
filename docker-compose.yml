@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  grafana:
+    build: 
+      context: .
+      args:
+        - GRAFANA_VERSION=${GRAFANA_VERSION}
+        - GF_INSTALL_IMAGE_RENDERER_PLUGIN=${GF_INSTALL_IMAGE_RENDERER_PLUGIN}
+        - GF_PATH_PLUGINS=${GF_PATH_PLUGINS}
+    tty: true
+    ports:
+      - 3000:${GRAFANA_PORT}
